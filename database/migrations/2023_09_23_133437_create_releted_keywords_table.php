@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('releted_keywords', function (Blueprint $table) {
             $table->id();
+            $table->string('keyword');
             $table->timestamps();
         });
     }
