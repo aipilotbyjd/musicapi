@@ -9,6 +9,15 @@ class Song extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'short_description',
+        'description',
+        'file_path',
+        'backup_file_path',
+        'space_id',
+    ];
+
     public function albums()
     {
         return $this->belongsToMany(Album::class);

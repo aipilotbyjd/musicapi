@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
+use App\Models\Space;
 use Illuminate\Http\Request;
 
-class SongsApiController extends Controller
+class SpacesApiController extends Controller
 {
-    public function createSong(Request $request)
+    public function createSpace(Request $request)
     {
-        $song = [
+        $space = [
             'title' => $request->title,
             'short_description' => $request->short_description,
             'description' => $request->description,
@@ -18,14 +18,14 @@ class SongsApiController extends Controller
             'space_id' => $request->space_id
         ];
 
-        $data = Song::create($song);
+        $data = Space::create($space);
 
         return response()->json($data);
     }
 
-    public function getAllSongs()
+    public function getAllSpaces()
     {
-        $songs = Song::select('title', 'short_description', 'description', 'file_path', 'backup_file_path')->get();
-        return response()->json($songs);
+        $spaces = Space::select('name', 'description', 'thumbnail_image', 'thumbnail_background_image', 'is_public', 'user_id')->get();
+        return response()->json($spaces);
     }
 }
