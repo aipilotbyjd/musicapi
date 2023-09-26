@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Hashtag extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'hashtag_name',
+    ];
 }

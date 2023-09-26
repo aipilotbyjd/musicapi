@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ReletedKeyword extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'keyword',
+    ];
 }

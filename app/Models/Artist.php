@@ -9,6 +9,12 @@ class Artist extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'bio',
+        'thumbnail_image',
+        'user_id',
+    ];
+
     public function songs()
     {
         return $this->belongsToMany(Song::class);
