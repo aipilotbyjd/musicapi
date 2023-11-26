@@ -4,11 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Song;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SongsApiController extends Controller
 {
     public function createSong(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'short_description' => 'required',
+            'song_file' => 'required|audio',
+            'space_id' => 'required',
+        ], [
+            'song_file.required' => 'Please Upload Your Song',
+            'song_file.audio' => 'Please Upload Proper Song',
+        ]);
+
+
+        if ($validator->fails()) {
+            return response($validator->errors());
+        }
+
+        if($request->hasFile('song_file')){
+            dd($request->getFile('song_file'));
+        }
+
         $song = [
             'title' => $request->title,
             'short_description' => $request->short_description,

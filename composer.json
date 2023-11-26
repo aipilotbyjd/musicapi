@@ -6,10 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "aws/aws-sdk-php": "^3.283",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "minuteoflaravel/laravel-audio-video-validator": "^1.1",
         "spatie/laravel-permission": "^5.11"
     },
     "require-dev": {
